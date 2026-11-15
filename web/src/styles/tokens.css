@@ -1,0 +1,68 @@
+/*
+ * Design tokens (MVP Implementation Plan, section 10; direction in web/DESIGN.md).
+ * The typed copy for deck.gl, MapLibre and SVG is src/styles/tokens.ts. Keep both in step.
+ */
+:root {
+  /* Ground and chrome */
+  --color-ash: #eceee9; /* chalk: land, page background */
+  --color-surface: #fbfbf8; /* sheet: top bar, panel, strip, floating controls */
+  --color-well: #eef0eb; /* sunken: empty calendar cells, chips, inputs at rest */
+  --color-water: #bacad2;
+  --color-ink: #1f2a2b;
+  --color-ink-muted: #55615f;
+  --color-teal: #16657d;
+  --color-teal-tint: rgb(22 101 125 / 10%);
+  --color-line: rgb(31 42 43 / 14%);
+  --color-line-strong: rgb(31 42 43 / 28%);
+
+  /* Data only (warm means fire) */
+  --color-ember-1: #f6d978;
+  --color-ember-2: #f0a848;
+  --color-ember-3: #de6f36;
+  --color-ember-4: #ba4128;
+  --color-ember-5: #842320;
+  --color-ember-6: #46141a;
+  --color-cell-outline: rgb(70 20 26 / 60%);
+  --opacity-cell: 0.9;
+  --opacity-dimmed: 0.35;
+  --opacity-low-confidence: 0.4;
+
+  --font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --font-caption: 13px;
+  --font-body: 15px;
+  --font-heading: 18px;
+  --font-title: 24px;
+  --weight-label: 600;
+  --weight-strong: 700;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* The radius says what a thing is: cards float, controls act, marks are data. */
+  --radius-card: 8px;
+  --radius: 6px;
+  --radius-mark: 2px;
+  --shadow-float: 0 1px 2px rgb(31 42 43 / 8%), 0 4px 14px rgb(31 42 43 / 8%);
+  --shadow-sheet: 0 -2px 6px rgb(31 42 43 / 6%), 0 -10px 30px rgb(31 42 43 / 12%);
+
+  --size-panel: 380px;
+  --size-strip: 108px;
+  --size-touch: 44px;
+  --size-daybar: 56px;
+  --size-topbar: 60px; /* room the floating top controls take, for the full sheet */
+
+  --motion-fast: 200ms;
+  --motion-strip: 300ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --size-strip: 64px;
+    --font-body: 16px;
+  }
+}

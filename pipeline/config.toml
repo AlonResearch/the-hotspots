@@ -1,0 +1,150 @@
+# Data build settings.
+#
+# Values marked "Decision Dn" are the team's method decisions of 2026-11-15 (D1 to D17 of
+# `Vision Docs/MVP Implementation Plan.md` section 13; Contributor.md "How the fire score works"). To change one, edit it here, rerun from the
+# step named in the comment, and the published numbers follow. The method values are written into
+# manifest.json and method.json by the publish step.
+
+[paths]
+# Relative paths are resolved against the repository root, unless --data-root is given on the
+# command line, which then replaces the "data" folder (for example the main checkout's data folder
+# when building from a worktree).
+raw = "data/raw"
+processed = "data/processed"
+# Published contract folder. Relative to the repository root. Git-ignored.
+publish = "web/public/firms"
+
+[normalize]
+# Archive folders (DL_FIRE_*) are the primary source. API month files under raw/firms are used only
+# for (product, month) pairs that no archive file covers.
+use_api_months = true
+
+[filters]
+# Decision D11: nominal and high confidence for both sensors, type 0 only.
+# MODIS confidence 0 to 100 is mapped to classes: low below 30, nominal 30 to 79, high 80 and above.
+confidence = ["n", "h"]
+modis_low_below = 30
+modis_high_from = 80
+types = [0]
+# NRT files have no `type` column. Open point of D11 (static mask or
+# persistence). Decided: a static mask built from the Standard (SP) files. A res 6 cell
+# is masked for NRT months when, over the mask years, at least `nrt_mask_min_share` of its
+# qualifying-confidence SP detections are not type 0 (volcano, static land source, offshore).
+# Set nrt_type_rule = "none" to keep every NRT detection.
+nrt_type_rule = "static_mask"
+nrt_mask_years = [2021, 2025]
+nrt_mask_min_share = 0.5
+
+[grid]
+# Base cell, decided by the team (H3 res 6).
+atom_res = 6
+# Decision D10: the day is the UTC acq_date.
+day = "utc"
+
+[harmonize]
+# Decision D1: plain ratio, VIIRS-equivalent reference.
+transfer = "ratio"
+# Decisions D2 and D3: S-NPP alone as the fit reference, fitted on 2012-02 to 2019-12.
+fit_reference = "snpp"
+fit_from = "2012-02"
+fit_to = "2019-12"
+# D3: also fit on this period and report the difference in method.json (not applied).
+compare_from = "2020-01"
+compare_to = "2025-12"
+# Decision D2 for the published VIIRS series: mean of S-NPP and NOAA-20 over the
+# satellites that are nominal in the month, the one available otherwise. NOAA-21 is held back
+# (per-satellite values only).
+viirs_group = ["snpp", "noaa20"]
+# Decision D2: off. S-NPP ended on 2026-11-02, so the newest months are NOAA-20 alone.
+# harmonize always fits a NOAA-20 to S-NPP cell-day scale (res 1 x season with the fallbacks below,
+# bootstrap band over the overlap years) and reports it in method.json. When true, NOAA-20 values
+# are multiplied by that scale before the VIIRS mean, so the published VIIRS series is in S-NPP
+# units throughout. Measured: S-NPP / NOAA-20 is about 0.98, so the steps it would remove are about 1%.
+scale_noaa20_to_snpp = false
+# A satellite is "nominal" in a month when it has detections on at least this share of the days
+# of that month that are inside the record (measured from the files, globally).
+nominal_day_share = 1.0
+# Outage detection for known_issues (display only, values are not changed): a day counts as "low"
+# when the satellite has fewer than this share of its median daily rows over a centred window of
+# outage_window_days. A month with a missing or low day is listed in manifest.known_issues.
+# 0.4 over 91 days flags every day of the Aqua outage of 16 August to 2 September 2020 (the
+# earlier rule, 0.25 of the month's own median, found 2 of them, because the outage pulled the
+# month's median down). Display only: values and nominal months do not depend on it.
+outage_low_day_share = 0.4
+outage_window_days = 91
+# D9 breakdown: res 1 regions need at least this many observed cell-days over the fit months to
+# enter the spread of the leave-one-year-out bias across regions.
+loyo_region_min_obs = 100
+# Decision D6: H3 res 1 parent x 3-month season, falling back to the res 0 parent
+# and then to the global ratio when the stratum's MODIS sum over the fit period is below
+# min_fit_cell_days (30, the value of the fixtures and of Contributor.md).
+region_res = 1
+fallback_res = 0
+min_fit_cell_days = 30
+# Decision D5: a separate Terra-only ratio for the months before Aqua starts.
+terra_only_ratio = true
+# Band: 5th to 95th percentile of the ratio over bootstrap resamples of the fit years.
+bootstraps = 200
+band_low_pct = 5
+band_high_pct = 95
+seed = 1
+# First month where the VIIRS reference is observed for a whole month (S-NPP starts 2012-01-20).
+first_reference_month = "2012-02"
+
+[publish]
+source = "firms"
+# Decision D8: res 6 detail (place history) for the whole world, and the world at res 3, 4 and 5.
+# Boxes are [west, south, east, north] in degrees; every active res 3 cell whose centre is inside a
+# box gets a detail tile. H3 centres lie in [-180, 180] x [-90, 90] and the test is inclusive, so the
+# world box takes every active res 3 cell, near the antimeridian and the poles too (publish logs the
+# count). Earlier builds used Europe and the Mediterranean, the Amazon arc and the Sahel.
+detail_areas = [
+  { name = "World", bbox = [-180.0, -90.0, 180.0, 90.0] },
+]
+detail_tile_res = 3
+max_place_cells = 5000
+# Res 5 overview parts: "all" lists every res 0 part with activity, "detail" only the parts that
+# touch a detail area.
+r5_parts = "all"
+# Optional daily fields inside the monthly files (contract v1, proposed), only for the demo place
+# (decision D16: Piedmont) and its neighbouring regions, so a demo near the border has no edge
+# effect. Selected: every res 6 cell whose centre is in a box. Overview cells that contain a selected
+# cell get daily values for the whole cell. UTC days (decision D10). An empty list turns them off.
+# Boxes are [west, south, east, north]:
+# - Piedmont: the region spans about 6.63 to 9.21 E and 44.06 to 46.46 N; the box adds about 0.1
+#   degrees so its edge cells are inside.
+# - Neighbouring regions: Aosta Valley, Liguria, Lombardy and Emilia-Romagna in Italy, the bordering
+#   French departements (Savoie, Hautes-Alpes, Alpes-de-Haute-Provence, Alpes-Maritimes) and Swiss
+#   cantons (Valais, Ticino). The box is their outer extent, so it also takes some cells beyond them.
+daily_areas = [
+  { name = "Piedmont, Italy", bbox = [6.5, 43.95, 9.35, 46.55] },
+  { name = "Piedmont and neighbouring regions", bbox = [5.4, 43.4, 12.8, 46.7] },
+]
+# Decision D4: 2012 to 2025, VIIRS years only, so no baseline year is estimated. A regional ratio
+# fixes the mean, not the zero frequency, so a baseline across the 2012 seam mixes two
+# distributions for small places. harmonize writes the measurements behind it into meta.json
+# (d4_zero_share, d4_band_half_width).
+baseline = { start_year = 2012, end_year = 2025, min_years = 10, exclude_target_year = true }
+# Decision D7.
+classes = { p_low = 25, p_high = 75, p_very_high = 90, min_normal_for_ratio = 3 }
+# App settings carried in the manifest (plan section 4.1 defaults).
+ladder = [
+  { res = 3, min_zoom = 0.0, source = "overview" },
+  { res = 4, min_zoom = 4.5, source = "overview" },
+  { res = 5, min_zoom = 6.0, source = "overview" },
+  { res = 6, min_zoom = 7.5, source = "detail" },
+]
+ladder_hysteresis = 0.3
+density_breaks = [1, 5, 25, 100, 300]
+# Preset places for search (D16: the demo place is not chosen yet).
+places = [
+  { id = "piedmont", name = "Piedmont, Italy (demo)", lat = 45.05, lon = 7.92 },
+  { id = "portugal", name = "Central Portugal", lat = 39.9, lon = -8.1 },
+  { id = "sicily", name = "Sicily, Italy", lat = 37.6, lon = 14.2 },
+  { id = "evros", name = "Evros, Greece", lat = 41.0, lon = 26.0 },
+  { id = "langhe", name = "Langhe, Italy", lat = 44.64, lon = 7.93 },
+  { id = "susa", name = "Susa Valley, Italy", lat = 45.14, lon = 7.05 },
+  { id = "matogrosso", name = "Mato Grosso, Brazil", lat = -11.5, lon = -54.5 },
+  { id = "rondonia", name = "Rondonia, Brazil", lat = -9.5, lon = -63.0 },
+  { id = "sahel", name = "South Sudan savanna", lat = 8.0, lon = 27.0 },
+]

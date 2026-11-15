@@ -1,0 +1,35 @@
+# Environment and virtualenvs
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.env
+.env.local
+
+# Build & runtime artifacts
+dist/
+build/
+.cache/
+
+# Data artifacts (Bronze/Silver/Gold caches)
+data/
+# Forecast outputs (forecast/ scripts write the CSV, Parquet, metrics and figures here)
+results/
+*.parquet
+*.db
+*.sqlite
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local-only workspace (raw audio, ASR transcripts, slide photos). Never synced.
+Info.local/
+
+# Personal / Local developer overrides (ignored for collaborators)
+AGENTS.local.md
+*.local.md
+.agents/local/

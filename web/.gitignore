@@ -1,0 +1,14 @@
+# The repo-wide rule "data/" ignores every folder named data. Keep the source
+# folder src/data tracked. public/data (fixtures or a real build) stays ignored.
+!src/data/
+node_modules/
+dist/
+test-results/
+playwright-report/
+*.tsbuildinfo
+# Real FIRMS build from pipeline/publish.py (served with VITE_DATA_BASE=/firms).
+public/firms/
+public/firms.building/
+public/firms.old/
+# Deploy folder from scripts/build-deploy.ts (app + copied data).
+deploy/

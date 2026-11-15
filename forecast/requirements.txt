@@ -1,0 +1,11 @@
+# Packages imported by forecast/01_build_firms.py to 05_figures.py (the 2027 forecast, see Prediction.md).
+# Versions as recorded in Vision Docs/PredictionEngineeringReport.md section 11 (Python 3.12.3).
+# pyarrow is not imported directly: pandas needs it to read and write Parquet.
+# The scripts run LOAD h3 in DuckDB; install the community extension once with
+#   python -c "import duckdb; duckdb.sql('INSTALL h3 FROM community')"
+duckdb==2.0.0
+pandas==3.1.1
+numpy==2.5.4
+pyarrow==26.0.1
+lightgbm==4.7.0
+matplotlib==3.11.2

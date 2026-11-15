@@ -1,0 +1,56 @@
+request_id,source,period,url
+849846,MODIS C6.1,2000-11-01 to 2000-12-31,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849846.zip
+849841,MODIS C6.1,2001,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849841.zip
+849840,MODIS C6.1,2002,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849840.zip
+849839,MODIS C6.1,2003,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849839.zip
+849838,MODIS C6.1,2004,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849838.zip
+849837,MODIS C6.1,2005,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849837.zip
+849836,MODIS C6.1,2006,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849836.zip
+849831,MODIS C6.1,2007,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849831.zip
+849830,MODIS C6.1,2008,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849830.zip
+849829,MODIS C6.1,2009,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849829.zip
+849828,MODIS C6.1,2010,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849828.zip
+849827,MODIS C6.1,2011,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849827.zip
+849804,MODIS C6.1,2012,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849804.zip
+849805,VIIRS S-NPP,2012,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849805.zip
+849806,MODIS C6.1,2013,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849806.zip
+849807,VIIRS S-NPP,2013,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849807.zip
+849808,MODIS C6.1,2014,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849808.zip
+849809,VIIRS S-NPP,2014,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849809.zip
+849810,MODIS C6.1,2015,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849810.zip
+849811,VIIRS S-NPP,2015,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849811.zip
+849812,MODIS C6.1,2016,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849812.zip
+849813,VIIRS S-NPP,2016,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849813.zip
+849814,MODIS C6.1,2017,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849814.zip
+849815,VIIRS S-NPP,2017,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849815.zip
+849478,MODIS C6.1,2018,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849478.zip
+849479,VIIRS S-NPP,2018,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849479.zip
+849480,VIIRS NOAA-20,2018,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849480.zip
+849481,MODIS C6.1,2019,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849481.zip
+849482,VIIRS S-NPP,2019,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849482.zip
+849483,VIIRS NOAA-20,2019,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849483.zip
+849793,MODIS C6.1,2020,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849793.zip
+849795,VIIRS S-NPP,2020,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849795.zip
+849794,VIIRS NOAA-20,2020,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849794.zip
+849796,MODIS C6.1,2021,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849796.zip
+849798,VIIRS S-NPP,2021,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849798.zip
+849797,VIIRS NOAA-20,2021,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849797.zip
+849799,MODIS C6.1,2022,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849799.zip
+849801,VIIRS S-NPP,2022,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849801.zip
+849800,VIIRS NOAA-20,2022,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849800.zip
+849474,MODIS C6.1,2023,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849474.zip
+849475,VIIRS S-NPP,2023,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849475.zip
+849476,VIIRS NOAA-20,2023,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849476.zip
+849477,VIIRS NOAA-21,2023,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J2V-C2_849477.zip
+849462,MODIS C6.1,2024,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849462.zip
+849463,VIIRS S-NPP,2024,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849463.zip
+849464,VIIRS NOAA-20,2024,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849464.zip
+849465,VIIRS NOAA-21,2024,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J2V-C2_849465.zip
+849452,MODIS C6.1,2025,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849452.zip
+849455,VIIRS S-NPP,2025,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849455.zip
+849453,VIIRS NOAA-20,2025,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849453.zip
+849454,VIIRS NOAA-21,2025,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J2V-C2_849454.zip
+849456,MODIS C6.1,2026-01-01 to 2026-11-14,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_M-C61_849456.zip
+849459,VIIRS S-NPP,2026-01-01 to 2026-11-14,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_SV-C2_849459.zip
+849457,VIIRS NOAA-20,2026-01-01 to 2026-11-14,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J1V-C2_849457.zip
+849458,VIIRS NOAA-21,2026-01-01 to 2026-11-14,https://firms.modaps.eosdis.nasa.gov/data/download/DL_FIRE_J2V-C2_849458.zip

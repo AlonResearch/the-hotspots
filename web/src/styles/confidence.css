@@ -1,0 +1,42 @@
+/* Confidence levels (D27): the marker next to a value, its plain line and the guide. */
+.confidence {
+  display: inline-block;
+  padding: 0 6px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: var(--weight-label);
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.confidence-low {
+  border-style: dashed;
+  color: var(--color-ink-muted);
+}
+
+.confidence-note {
+  margin-top: var(--space-1);
+}
+
+.confidence-guide ul {
+  margin: var(--space-2) 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--font-caption);
+  color: var(--color-ink-muted);
+}
+
+.confidence-guide table {
+  width: 100%;
+}
+
+/* Map legend line about faded cells. */
+.legend-confidence {
+  flex-basis: 100%;
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--color-ink-muted);
+}

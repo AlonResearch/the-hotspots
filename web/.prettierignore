@@ -1,0 +1,8 @@
+node_modules
+dist
+public/data
+public/firms
+public/basemap
+test-results
+playwright-report
+package-lock.json

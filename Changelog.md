@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2026-11-15] - Fix: legible seam labels, whole cell-days for estimated values
+
+### Fixed
+- Seam labels on the time strip get a halo in the strip background (`paint-order: stroke`, 3 px, round joins), so they stay readable over dark bars. Row pitch raised from 11 to 14 px so the text boxes of row 1 and row 2 no longer touch. The month flag and cursor are still drawn last, above the labels; the flag ends above the first label row.
+- Estimated (ratio-scaled) values showed decimals, for example "849,078.5 active cell-days". `formatValue` and `cellDays` in `web/src/stats/wording.ts` take an `estimated` flag and then show whole cell-days. Used in the History sentence, the strip summary, calendar and year chart labels, and the map tooltip in scientific mode. Observed values keep one decimal. CSV downloads and the scientific tables are unchanged. Tests in `web/tests/unit/wording.test.ts`.
+
+---
+
 ## [2026-11-15] - Fix: seam labels on the time strip no longer overlap
 
 ### Fixed
